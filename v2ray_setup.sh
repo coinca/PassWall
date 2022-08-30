@@ -1,6 +1,7 @@
 #!/bin/bash
-# v2ray一键安装脚本
-# Author: 梯子博客<https://tizi.blog/>
+# v2ray一键安装脚本【同步于2022.8.30】
+# 原作者: https://tizi.blog/
+# 原作者的引用代码：bash <(curl -sL https://storage.googleapis.com/tiziblog/setup.sh)
 
 
 RED="\033[31m"      # Error message
