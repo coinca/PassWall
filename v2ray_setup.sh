@@ -394,7 +394,7 @@ getData() {
     fi
 
     if [[ "$TLS" = "true" || "$XTLS" = "true" ]]; then
-        PROXY_URL="https://www.geektyper.com/"
+        PROXY_URL="https://geektyper.com/"
         REMOTE_HOST=`echo ${PROXY_URL} | cut -d/ -f3`
         colorEcho $BLUE " 伪装网站：$PROXY_URL"
 
