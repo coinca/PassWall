@@ -230,7 +230,7 @@ getData() {
         echo " V2ray一键脚本，运行之前请确认如下条件已经具备："
         colorEcho ${YELLOW} "  1. 一个伪装域名"
         colorEcho ${YELLOW} "  2. 伪装域名DNS解析指向当前服务器ip（${IP}）"
-        colorEcho ${BLUE} "  3. 如果/root目录下有 v2ray.pem 和 v2ray.key 证书密钥文件，无需理会条件2"
+        colorEcho ${BLUE} "  3. 如果/key目录下有 v2ray.pem 和 v2ray.key 证书密钥文件，无需理会条件2"
         echo " "
         read -p " 确认满足按y，按其他退出脚本：" answer
         if [[ "${answer,,}" != "y" ]]; then
@@ -250,7 +250,7 @@ getData() {
         DOMAIN=${DOMAIN,,}
         colorEcho ${BLUE}  " 伪装域名(host)：$DOMAIN"
 
-        if [[ -f ~/v2ray.pem && -f ~/v2ray.key ]]; then
+        if [[ -f /key/v2ray.pem && -f /key/v2ray.key ]]; then
             colorEcho ${BLUE}  " 检测到自有证书，将使用其部署"
             CERT_FILE="/etc/v2ray/${DOMAIN}.pem"
             KEY_FILE="/etc/v2ray/${DOMAIN}.key"
