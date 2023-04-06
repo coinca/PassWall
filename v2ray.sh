@@ -254,6 +254,8 @@ getData() {
             colorEcho ${BLUE}  " 检测到自有证书，将使用其部署"
             CERT_FILE="/etc/v2ray/${DOMAIN}.pem"
             KEY_FILE="/etc/v2ray/${DOMAIN}.key"
+	    cp -f /key/v2ray.pem $CERT_FILE
+	    cp -f /key/v2ray.key $KEY_FILE
         else
             # resolve=`curl -sL http://api.tizi.blog/hostip?domain=${DOMAIN}`
             resolve=$(curl -sm8 ipget.net/?ip=${DOMAIN})
