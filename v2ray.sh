@@ -249,6 +249,18 @@ getData() {
         done
         DOMAIN=${DOMAIN,,}
         colorEcho ${BLUE}  " 伪装域名(host)：$DOMAIN"
+	
+	while true
+        do
+            read -p " 请输入反向代理的域名（展示网页地址）：" FAKE_WEBSITE
+            if [[ -z "${FAKE_WEBSITE}" ]]; then
+                colorEcho ${RED} " 域名输入错误，请重新输入！"
+            else
+                break
+            fi
+        done
+        FAKE_WEBSITE=${FAKE_WEBSITE,,}
+        colorEcho ${BLUE}  " 展示网页：$FAKE_WEBSITE"
 
         if [[ -f /key/v2ray.pem && -f /key/v2ray.key ]]; then
             colorEcho ${BLUE}  " 检测到自有证书，将使用其部署"
@@ -378,7 +390,7 @@ getData() {
     fi
 
     if [[ "$TLS" = "true" || "$XTLS" = "true" ]]; then
-        PROXY_URL="https://www.7-zip.org"
+        PROXY_URL=${FAKE_WEBSITE}
         REMOTE_HOST=`echo ${PROXY_URL} | cut -d/ -f3`
         colorEcho $BLUE " 伪装网站：$PROXY_URL"
 
