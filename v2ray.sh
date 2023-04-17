@@ -390,7 +390,7 @@ getData() {
     fi
 
     if [[ "$TLS" = "true" || "$XTLS" = "true" ]]; then
-        PROXY_URL=${FAKE_WEBSITE}
+        PROXY_URL="https://$FAKE_WEBSITE"
         REMOTE_HOST=`echo ${PROXY_URL} | cut -d/ -f3`
         colorEcho $BLUE " 伪装网站：$PROXY_URL"
 
