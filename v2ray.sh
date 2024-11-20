@@ -269,8 +269,8 @@ getData() {
             CERT_FILE="/etc/v2ray/${DOMAIN}.pem"
             KEY_FILE="/etc/v2ray/${DOMAIN}.key"
         else
-	    resolve=$(curl -sm8 ipget.net/?ip=${DOMAIN})
-	    colorEcho ${RED}  "此处本应检查伪装域名是否解析到IP，因解析网址经常失效直接跳过\n${DOMAIN}/${IP}\n解析结果展示：${resolve}"
+	    resolve=$(curl -sL http://api.tizi.blog/hostip?domain=${DOMAIN})
+	    colorEcho ${RED}  "此处本应检查伪装域名是否解析到IP，因解析网址经常失效直接跳过\n域名：${DOMAIN}\nIP：${IP}\n解析结果：\n${resolve}"
             # resolve=`curl -sL http://api.tizi.blog/hostip?domain=${DOMAIN}`
             # resolve=$(curl -sm8 ipget.net/?ip=${DOMAIN})
             # res=`echo -n ${resolve} | grep ${IP}`
