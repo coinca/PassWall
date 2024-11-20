@@ -269,12 +269,7 @@ getData() {
             CERT_FILE="/etc/v2ray/${DOMAIN}.pem"
             KEY_FILE="/etc/v2ray/${DOMAIN}.key"
         else
-	    resolve=$(nslookup ${DOMAIN} | awk '/^Address: / { print $2 }')
-            res=$(echo "${resolve}" | grep "${IP}")
-            if [[ -z "${res}" ]]; then
-                colorEcho ${BLUE} "${DOMAIN} 解析结果：${resolve}"
-                colorEcho ${RED} " 域名未解析到当前服务器IP(${IP})!"
-                exit 1
+	    colorEcho ${RED}  "此处原本应检查伪装域名是否解析到IP，现在因解析网址失效直接跳过 ${DOMAIN}/${IP}"
             # resolve=`curl -sL http://api.tizi.blog/hostip?domain=${DOMAIN}`
             # resolve=$(curl -sm8 ipget.net/?ip=${DOMAIN})
             # res=`echo -n ${resolve} | grep ${IP}`
